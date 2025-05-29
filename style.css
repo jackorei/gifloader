@@ -7,16 +7,25 @@
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     background-color: rgb(20, 20, 21);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    height: 100%;
 }
 
 header {
     background-color: rgb(20, 20, 21);
     padding: 10px;
-    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(35, 35, 36);
 }
 
 footer {
@@ -26,6 +35,14 @@ footer {
     align-items: center;
     gap: 10px;
     padding: 10px;
+    border-top: 1px solid rgb(35, 35, 36);
+}
+
+.mainarea {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .app {
@@ -41,6 +58,22 @@ footer {
     font-weight: 700;
     font-style: italic;
     color: rgb(94, 153, 255);
+}
+
+.how {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: rgb(126, 126, 133);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.how:hover {
+    background-color: rgb(24, 24, 26);
 }
 
 .gifcontainer {
@@ -140,6 +173,22 @@ img {
     align-items: center;
     gap: 5px;
 }
+
+#spinner {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid rgb(71, 71, 75);
+    border-left-color: rgb(94, 153, 255);
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 
 @media (max-width: 600px) {
     .gifcontainer {
