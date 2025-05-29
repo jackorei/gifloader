@@ -153,25 +153,50 @@ form {
     border: 1px solid rgb(56, 56, 60);
 }
 
+.control {
+    display: flex;
+    gap: 10px;
+}
+
 #generate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 110px;
+    height: 30px;
     background-color: rgb(34, 36, 46);
     border-radius: 5px;
     border: 1px solid rgb(48, 55, 71);
     padding: 3px;
     font-size: 18px;
-    width: 100px;
-    height: 30px;
     cursor: pointer;
 }
+#generate:hover {
+    background-color: rgba(34, 36, 46, 0.839);
+}
+
+#svgg {
+    width: 18px;
+    height: 18px;
+}
+
 #remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 110px;
+    height: 30px;
     background-color: rgb(43, 34, 34);
     border-radius: 5px;
     border: 1px solid rgb(68, 54, 54);
     padding: 3px;
     font-size: 18px;
-    width: 100px;
-    height: 30px;
     cursor: pointer;
+}
+#remove:hover {
+    background-color: rgba(43, 34, 34, 0.843);
 }
 
 #remove:disabled {
@@ -181,6 +206,24 @@ form {
 #generate:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+#download {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 110px;
+    height: 30px;
+    background-color: rgb(34, 43, 36);
+    border-radius: 5px;
+    border: 1px solid rgb(54, 68, 57);
+    padding: 3px;
+    font-size: 18px;
+    cursor: pointer;
+}
+#download:hover {
+    background-color: rgba(34, 43, 36, 0.846);
 }
 
 
@@ -217,6 +260,9 @@ img {
       transform: rotate(360deg);
     }
   }
+
+
+
 
 @media (max-width: 600px) {
     .gifcontainer {

@@ -11,6 +11,13 @@ gifsearch.addEventListener('input', () => {
   error.textContent = ''
 })
 
+gifsearch.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    generate.click();
+  }
+});
+
 generate.addEventListener('click', () => {
   if (gifsearch.value === '') {
     error.textContent = 'Enter a search!'
@@ -33,11 +40,11 @@ generate.addEventListener('click', () => {
         return response.json()
       })
       .then(function(response) {
-        if (!response.data || !response.data.images) {
+        if (!response.data || !response.data.images || !response.data.images.original) {
           spinner.style.display = ''
-          console.log(`Did not find a GIF! URL: ${response.data.images.original.url}`)
-          error.textContent = 'No GIF found for that search.'
+          error.textContent = 'No GIF found for that search!'
           img.remove()
+          giftext.style.display = 'block'
           gifsearch.disabled = false
           generate.disabled = false
           remove.disabled = true
@@ -48,14 +55,39 @@ generate.addEventListener('click', () => {
         spinner.style.display = ''
         console.log(`Found GIF! URL: ${response.data.images.original.url}`)
         img.src = response.data.images.original.url
+        document.querySelector('#download').style.display = 'flex';
+        document.querySelector('#download').dataset.gifUrl = response.data.images.original.url;
       })
     }
 })
 
 remove.addEventListener('click', () => {
+  downloadBtn.style.display = ''
   giftext.style.display = 'block'
   gifsearch.value = ''
   remove.disabled = true
   const img = document.querySelector('.gif')
   img.remove()
 })
+
+const downloadBtn = document.querySelector('#download');
+
+downloadBtn.addEventListener('click', () => {
+  const gifUrl = downloadBtn.dataset.gifUrl;
+
+  fetch(gifUrl)
+    .then(response => response.blob())
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'iloveyou.gif'; // you could make this dynamic later
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    })
+    .catch(err => {
+      console.error('Download failed:', err);
+    });
+});
