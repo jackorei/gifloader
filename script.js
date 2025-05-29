@@ -16,9 +16,9 @@ generate.addEventListener('click', () => {
     error.textContent = 'Enter a search!'
   }
   else {
+    generate.disabled = true
     spinner.style.display = 'block'
     giftext.style.display = 'none'
-    remove.disabled = false
 
     const search = gifsearch.value
     const gifcontainer = document.querySelector('.gifcontainer')
@@ -43,6 +43,8 @@ generate.addEventListener('click', () => {
           remove.disabled = true
           return
         }
+        generate.disabled = false
+        remove.disabled = false
         spinner.style.display = ''
         console.log(`Found GIF! URL: ${response.data.images.original.url}`)
         img.src = response.data.images.original.url

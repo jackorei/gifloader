@@ -28,15 +28,38 @@ header {
     border-bottom: 1px solid rgb(35, 35, 36);
 }
 
-footer {
-    background-color: rgb(20, 20, 21);
+.footer {
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     padding: 10px;
     border-top: 1px solid rgb(35, 35, 36);
-}
+  }
+  
+  .credit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgb(79, 79, 83);
+    font-size: 16px;
+  }
+  
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .github-icon {
+    width: 20px;
+    height: 20px;
+    fill: rgb(79, 79, 83);
+    transition: fill 0.3s ease;
+  }
+  
+  .github-link:hover .github-icon {
+    fill: #cfcfcf;
+  }
 
 .mainarea {
     flex: 1;
@@ -155,6 +178,11 @@ form {
     opacity: 0.5;
     cursor: not-allowed;
 }
+#generate:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 
 #giftext {
     color: rgb(71, 71, 75);
