@@ -16,7 +16,16 @@ body {
 header {
     background-color: rgb(20, 20, 21);
     padding: 10px;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
+}
+
+footer {
+    background-color: rgb(20, 20, 21);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
 }
 
 .app {
@@ -130,4 +139,33 @@ img {
     justify-content: center;
     align-items: center;
     gap: 5px;
+}
+
+@media (max-width: 600px) {
+    .gifcontainer {
+        background-color: #171718;
+        border: 1px solid rgb(35, 35, 36);
+        padding: 25px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 300px;
+    }
+    
+    .gifmaker {
+        width: 300px;
+        height: 100px;
+        background-color: rgb(23, 23, 24);
+        border: 1px solid rgb(35, 35, 36);
+        padding: 25px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
 }
